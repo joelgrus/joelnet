@@ -1,20 +1,20 @@
 """
-fizzbuzz is the terrible programming interview problem
-where for each of the numbers from 1 to 100,
+FizzBuzz is the following problem:
 
+For each of the numbers 1 to 100:
 * if the number is divisible by 3, print "fizz"
 * if the number is divisible by 5, print "buzz"
 * if the number is divisible by 15, print "fizzbuzz"
-* otherwise just print the number itself
+* otherwise, just print the number
 """
 from typing import List
 
 import numpy as np
 
+from joelnet.train import train
 from joelnet.nn import NeuralNet
 from joelnet.layers import Linear, Tanh
 from joelnet.optim import SGD
-from joelnet.train import train
 
 def fizz_buzz_encode(x: int) -> List[int]:
     if x % 15 == 0:
@@ -26,18 +26,21 @@ def fizz_buzz_encode(x: int) -> List[int]:
     else:
         return [1, 0, 0, 0]
 
+
 def binary_encode(x: int) -> List[int]:
     """
-    return the 10 binary digits of x
+    10 digit binary encoding of x
     """
     return [x >> i & 1 for i in range(10)]
 
 inputs = np.array([
-    binary_encode(x) for x in range(101, 1024)
+    binary_encode(x)
+    for x in range(101, 1024)
 ])
 
 targets = np.array([
-    fizz_buzz_encode(x) for x in range(101, 1024)
+    fizz_buzz_encode(x)
+    for x in range(101, 1024)
 ])
 
 net = NeuralNet([
@@ -53,8 +56,7 @@ train(net,
       optimizer=SGD(lr=0.001))
 
 for x in range(1, 101):
-    inputs = binary_encode(x)
-    predicted = net.forward(inputs)
+    predicted = net.forward(binary_encode(x))
     predicted_idx = np.argmax(predicted)
     actual_idx = np.argmax(fizz_buzz_encode(x))
     labels = [str(x), "fizz", "buzz", "fizzbuzz"]

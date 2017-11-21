@@ -1,12 +1,13 @@
 """
-A neural net is just a series of layers.
-In fact, it behaves a lot like a layer itself
-although we're not going to make it one.
+A NeuralNet is just a collection of layers.
+It behaves a lot like a layer itself, although
+we're not going to make it one.
 """
 from typing import Sequence, Iterator, Tuple
 
 from joelnet.tensor import Tensor
 from joelnet.layers import Layer
+
 
 class NeuralNet:
     def __init__(self, layers: Sequence[Layer]) -> None:

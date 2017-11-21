@@ -1,18 +1,17 @@
 """
-An optimizer uses the computed gradients
-to adjust the parameters of a neural net
+We use an optimizer to adjust the parameters
+of our network based on the gradients computed
+during backpropagation
 """
-
 from joelnet.nn import NeuralNet
-from joelnet.tensor import Tensor
-
 
 class Optimizer:
     def step(self, net: NeuralNet) -> None:
         raise NotImplementedError
 
+
 class SGD(Optimizer):
-    def __init__(self, lr: float) -> None:
+    def __init__(self, lr: float = 0.01) -> None:
         self.lr = lr
 
     def step(self, net: NeuralNet) -> None:

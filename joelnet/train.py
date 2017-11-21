@@ -1,5 +1,5 @@
 """
-Here's the function for training neural nets
+Here's a function that can train a neural net
 """
 
 from joelnet.tensor import Tensor
@@ -15,7 +15,7 @@ def train(net: NeuralNet,
           num_epochs: int = 5000,
           iterator: DataIterator = BatchIterator(),
           loss: Loss = MSE(),
-          optimizer: Optimizer = SGD(lr=0.01)) -> None:
+          optimizer: Optimizer = SGD()) -> None:
     for epoch in range(num_epochs):
         epoch_loss = 0.0
         for batch in iterator(inputs, targets):

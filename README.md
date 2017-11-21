@@ -24,9 +24,9 @@ type hinting, Python 3.6, and of course deep learning.
 # Here's the plan:
 
 1. Tensors
-2. Layers
-3. Neural Nets
-4. Loss Functions
+2. Loss Functions
+3. Layers
+4. Neural Nets
 5. Optimizers
 6. Data
 7. Training

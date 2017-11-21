@@ -1,17 +1,17 @@
 """
-The canonical example of a function that can't
-be learned by a linear layer alone is XOR.
+The canonical example of a function that can't be
+learned with a simple linear model is XOR
 """
 import numpy as np
 
+from joelnet.train import train
 from joelnet.nn import NeuralNet
 from joelnet.layers import Linear, Tanh
-from joelnet.train import train
 
 inputs = np.array([
     [0, 0],
-    [0, 1],
     [1, 0],
+    [0, 1],
     [1, 1]
 ])
 
@@ -28,7 +28,7 @@ net = NeuralNet([
     Linear(input_size=2, output_size=2)
 ])
 
-train(net, inputs, targets, num_epochs=5000)
+train(net, inputs, targets)
 
 for x, y in zip(inputs, targets):
     predicted = net.forward(x)
