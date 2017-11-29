@@ -1,5 +1,7 @@
 # Livecoding Madness: Let's Build a Deep Learning Library
 
+[video](https://www.youtube.com/watch?v=o64FV-ez6Gw) of the livecoding.
+
 [slides](https://docs.google.com/presentation/d/1y9aC4hbNbcpjw9r6BMSayBmEdmdUwR5us_26X3S2j2M/edit?usp=sharing)
 
 --------
